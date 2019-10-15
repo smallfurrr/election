@@ -1,11 +1,10 @@
-pragma solidity ^0.5.8;
+pragma solidity ^0.5.13;
 
 contract Election {
-    // Read/write candidate
-    string public candidate;
-
-    // Constructor
-    constructor() public {
-        candidate = "Candidate 1";
+    // Model a candidate
+    struct Candidate {
+        uint id;
+        string name;
+        uint voteCount;
     }
 }
