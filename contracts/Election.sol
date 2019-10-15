@@ -1,4 +1,4 @@
-pragma solidity ^0.5.13;
+pragma solidity ^0.5.8;
 
 contract Election {
     // Model a candidate
@@ -14,9 +14,15 @@ contract Election {
     // Store candidates count
     uint public candidatesCount;
 
+    // Adds candidates - runs when contract is migrated and deployed 
+    constructor() public {
+        addCandidate("Candidate 1");
+        addCandidate("Candidate 2");
+    }
+
     // Adding a candidate - private function (only used within contract)
-    function addCandidate (string _name) private {
+    function addCandidate (string memory _name) private {
         candidatesCount ++;
-        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0)
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 }
